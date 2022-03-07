@@ -6,12 +6,12 @@ typedef struct BST
 int data;
 struct BST *lchild,*rchild;
 } node;
-/*FUNCTION PROTOTYPE*/
+/FUNCTION PROTOTYPE/
 void insert(node *, node *);
 void inorder(node *);
 void preorder(node *);
 void postorder(node *);
-node *search(node *, int, node **);
+node search(node *, int, node *);
 void main()
 {
 int choice;
@@ -103,7 +103,7 @@ if (new_node->data > root->data)
  insert(root->rchild, new_node);
  }
 }
-/*This function is for searching the node from binary Search Tree*/
+/This function is for searching the node from binary Search Tree/
 node *search(node *root, int key, node **parent)
 {
  node *temp;
@@ -154,5 +154,3 @@ if (temp != NULL)
  printf("%d\t", temp->data);
  }
 }
-
-

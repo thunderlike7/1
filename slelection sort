@@ -1,37 +1,26 @@
-#include <stdio.h>
-int main()
-{
-  int array[100], n, c, d, position, t;
+=#include <stdio.h>
+#include <string.h>
 
-  printf("Enter number of elements\n");
-  scanf("%d", &n);
-
-  printf("Enter %d integers\n", n);
-
-  for (c = 0; c < n; c++)
-    scanf("%d", &array[c]);
-
-  for (c = 0; c < (n - 1); c++) // finding minimum element (n-1) times
-  {
-    position = c;
-
-    for (d = c + 1; d < n; d++)
-    {
-      if (array[position] > array[d])
-        position = d;
-    }
-    if (position != c)
-    {
-      t = array[c];
-      array[c] = array[position];
-      array[position] = t;
+char input[100];
+void ascendingOrderString() {
+  int i, j;
+  char temp;
+  int stringLength = strlen(input);
+  for (i = 0; i < stringLength - 1; i++) {
+    for (j = i + 1; j < stringLength; j++) {
+      if (input[i] > input[j]) {
+        temp = input[i];
+        input[i] = input[j];
+        input[j] = temp;
+      }
     }
   }
+}
 
-  printf("Sorted list in ascending order:\n");
-
-  for (c = 0; c < n; c++)
-    printf("%d\n", array[c]);
-
+int main() {
+  printf("\n\t Enter the string : ");
+  fgets(input, 100, stdin);
+  ascendingOrderString();
+  puts(input);
   return 0;
 }
